@@ -15,49 +15,64 @@
  *************************************************************************************/
 package org.spinsuite.sync.content;
 
-import java.io.Serializable;
+import java.util.HashMap;
 
 /**
- * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com Mar 26, 2015, 7:21:45 PM
+ * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com Mar 27, 2015, 1:46:38 PM
  *
  */
-public abstract class ContentHeader implements Serializable {
+public class SyncProcess extends SyncPO {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 302061383366809965L;
+	private static final long serialVersionUID = 90998070144630205L;
 
 	/**
-	 * 
 	 * *** Constructor ***
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_LocalClient_ID
 	 */
-	public ContentHeader(String p_LocalClient_ID) {
-		m_LocalClient_ID = p_LocalClient_ID;
+	public SyncProcess(String p_LocalClient_ID) {
+		super(p_LocalClient_ID);
 	}
 	
-	/**	Client Identifier		*/
-	private String 	m_LocalClient_ID 	= null;
+	/**
+	 * Full Constructor
+	 * *** Constructor ***
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_LocalClient_ID
+	 * @param p_AD_Table_ID
+	 * @param p_AD_Process_ID
+	 * @param p_SyncType
+	 * @param p_Detail
+	 */
+	public SyncProcess(String p_LocalClient_ID, int p_AD_Table_ID, int p_AD_Process_ID, 
+			String p_SyncType, HashMap<String, Object> p_Detail) {
+		super(p_LocalClient_ID, p_AD_Table_ID, p_SyncType, p_Detail);
+		m_AD_Process_ID = p_AD_Process_ID;
+	}
+	
+	/**	Table Identifier			*/
+	private int 	m_AD_Process_ID = 0;
 	
 	/**
-	 * Get Local Client Identifier
+	 * Get Process
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @return
-	 * @return String
+	 * @return int
 	 */
-	public String getLocalClient_ID() {
-		return m_LocalClient_ID;
+	public int getAD_Process_ID() {
+		return m_AD_Process_ID;
 	}
 	
 	/**
-	 * Set Local Client Identifier
+	 * Set Table
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param m_LocalClient_ID
+	 * @param p_AD_Process_ID
 	 * @return void
 	 */
-	public void setLocalClient_ID(String m_LocalClient_ID) {
-		this.m_LocalClient_ID = m_LocalClient_ID;
+	public void setAD_Process_ID(int p_AD_Process_ID) {
+		m_AD_Process_ID = p_AD_Process_ID;
 	}
 }

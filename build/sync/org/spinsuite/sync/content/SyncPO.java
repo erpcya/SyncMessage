@@ -15,23 +15,25 @@
  *************************************************************************************/
 package org.spinsuite.sync.content;
 
+import java.util.HashMap;
+
 /**
  * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com Mar 27, 2015, 1:46:38 PM
  *
  */
-public class ContentMessage extends ContentHeader {
+public class SyncPO extends SyncParent {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 7361997519210006596L;
+	private static final long serialVersionUID = -7850015954985904271L;
 
 	/**
 	 * *** Constructor ***
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_LocalClient_ID
 	 */
-	public ContentMessage(String p_LocalClient_ID) {
+	public SyncPO(String p_LocalClient_ID) {
 		super(p_LocalClient_ID);
 	}
 	
@@ -40,93 +42,91 @@ public class ContentMessage extends ContentHeader {
 	 * *** Constructor ***
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_LocalClient_ID
-	 * @param p_Text
-	 * @param p_FileName
-	 * @param p_Attachment
+	 * @param p_AD_Table_ID
+	 * @param p_SyncType
+	 * @param p_Detail
 	 */
-	public ContentMessage(String p_LocalClient_ID, String p_Text, String p_FileName, byte[] p_Attachment) {
+	public SyncPO(String p_LocalClient_ID, int p_AD_Table_ID, 
+			String p_SyncType, HashMap<String, Object> p_Detail) {
 		super(p_LocalClient_ID);
-		m_Text = p_Text;
-		m_FileName = p_FileName;
-		m_Attachment = p_Attachment;
+		m_AD_Table_ID = p_AD_Table_ID;
+		m_SyncType = p_SyncType;
+		m_Detail = p_Detail;
 	}
 	
+	/**	Table Identifier			*/
+	private int 					m_AD_Table_ID 		= 0;
+	/**	Synchronization Type		*/
+	private String 					m_SyncType			= null;
+	/**	Detail						*/
+	private HashMap<String, Object> m_Detail			= null;
+	/**	New Type					*/
+	public static final	String 		SYNC_TYPE_NEW 		= "N";
+	/**	Update Type					*/
+	public static final	String 		SYNC_TYPE_UPDATE 	= "U";
+	/**	Delete Type					*/
+	public static final	String 		SYNC_TYPE_DELETE 	= "D";
+	/**	Read Type					*/
+	public static final	String 		SYNC_TYPE_READ 		= "R";
+	
 	/**
-	 * 
-	 * *** Constructor ***
+	 * Get Table
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_LocalClient_ID
-	 * @param p_Text
+	 * @return
+	 * @return int
 	 */
-	public ContentMessage(String p_LocalClient_ID, String p_Text) {
-		super(p_LocalClient_ID);
-		m_Text = p_Text;
+	public int getAD_Table_ID() {
+		return m_AD_Table_ID;
 	}
 	
-	/**	Name					*/
-	private String 	m_Text 			= null;
-	/**	File Name				*/
-	private String 	m_FileName		= null;
-	/**	Attachment				*/
-	private byte[]	m_Attachment 	= null;
+	/**
+	 * Set Table
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_AD_Table_ID
+	 * @return void
+	 */
+	public void setAD_Table_ID(int p_AD_Table_ID) {
+		m_AD_Table_ID = p_AD_Table_ID;
+	}
 	
 	/**
-	 * Get Text
+	 * Get Synchronization Type
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @return
 	 * @return String
 	 */
-	public String getText() {
-		return m_Text;
+	public String getSyncType() {
+		return m_SyncType;
 	}
 	
 	/**
-	 * Set Text for Message
+	 * Set Synchronization Type
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_Text
+	 * @param p_SyncType
 	 * @return void
 	 */
-	public void setText(String p_Text) {
-		m_Text = p_Text;
+	public void setSyncType(String p_SyncType) {
+		m_SyncType = p_SyncType;
 	}
 	
 	/**
-	 * Get Message Attachment
+	 * Get Persistence Object Detail
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @return
-	 * @return byte[]
+	 * @return HashMap<String,Object>
 	 */
-	public byte[] getAttachment() {
-		return m_Attachment;
+	public HashMap<String, Object> getDetail() {
+		return m_Detail;
 	}
 	
 	/**
-	 * Set Attachment
+	 * Set Persistence Object Detail
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_Attachment
+	 * @param p_Detail
 	 * @return void
 	 */
-	public void setAttachment(byte[] p_Attachment) {
-		m_Attachment = p_Attachment;
+	public void setDetail(HashMap<String, Object> p_Detail) {
+		m_Detail = p_Detail;
 	}
 	
-	/**
-	 * Get File Name
-	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @return
-	 * @return String
-	 */
-	public String getFileName() {
-		return m_FileName;
-	}
-	
-	/**
-	 * Set Name of File
-	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_FileName
-	 * @return void
-	 */
-	public void setFileName(String p_FileName) {
-		m_FileName = p_FileName;
-	}
 }
