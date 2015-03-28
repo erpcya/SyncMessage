@@ -60,4 +60,9 @@ public abstract class SyncParent implements Serializable {
 	public void setLocalClient_ID(String m_LocalClient_ID) {
 		this.m_LocalClient_ID = m_LocalClient_ID;
 	}
+
+	@Override
+	public String toString() {
+		return "SyncParent [m_LocalClient_ID=" + m_LocalClient_ID + "]";
+	}
 }

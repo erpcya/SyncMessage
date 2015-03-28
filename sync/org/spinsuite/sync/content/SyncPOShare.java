@@ -52,5 +52,4 @@ public class SyncPOShare extends SyncPO {
 	
 	/**	Share Type					*/
 	public static final	String 		SYNC_TYPE_SHARE 	= "S";
-
 }

@@ -75,4 +75,9 @@ public class SyncProcess extends SyncPO {
 	public void setAD_Process_ID(int p_AD_Process_ID) {
 		m_AD_Process_ID = p_AD_Process_ID;
 	}
+
+	@Override
+	public String toString() {
+		return "SyncProcess [m_AD_Process_ID=" + m_AD_Process_ID + "]";
+	}
 }
