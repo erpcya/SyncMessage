@@ -60,11 +60,13 @@ public class SyncPO extends SyncParent {
 	private String 					m_SyncType			= null;
 	/**	Detail						*/
 	private HashMap<String, Object> m_Detail			= null;
-	/**	Upload Type					*/
+	/**	New Type					*/
 	public static final	String 		SYNC_TYPE_NEW 		= "N";
-	/**	Upload Type					*/
+	/**	Update Type					*/
 	public static final	String 		SYNC_TYPE_UPDATE 	= "U";
-	/**	Upload Type					*/
+	/**	Delete Type					*/
+	public static final	String 		SYNC_TYPE_DELETE 	= "D";
+	/**	Read Type					*/
 	public static final	String 		SYNC_TYPE_READ 		= "R";
 	
 	/**
