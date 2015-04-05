@@ -131,6 +131,20 @@ public class SyncRequest extends SyncParent {
 	public void addUser(int p_AD_User_ID) {
 		m_Users.add(p_AD_User_ID);
 	}
+	
+	/**
+	 * Get Invited Qty
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return int
+	 */
+	public int getIvitedQty() {
+		//	Valid Null Pinter
+		if(m_Users == null)
+			return 0;
+		//	Default return
+		return m_Users.size();
+	}
 
 	@Override
 	public String toString() {
