@@ -128,5 +128,10 @@ public class SyncPO extends SyncParent {
 	public void setDetail(HashMap<String, Object> p_Detail) {
 		m_Detail = p_Detail;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "SyncPO [m_AD_Table_ID=" + m_AD_Table_ID + ", m_SyncType="
+				+ m_SyncType + ", m_Detail=" + m_Detail + "]";
+	}
 }

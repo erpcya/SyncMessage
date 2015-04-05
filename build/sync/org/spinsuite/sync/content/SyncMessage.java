@@ -129,4 +129,10 @@ public class SyncMessage extends SyncParent {
 	public void setFileName(String p_FileName) {
 		m_FileName = p_FileName;
 	}
+
+	@Override
+	public String toString() {
+		return "SyncMessage [m_Text=" + m_Text + ", m_FileName=" + m_FileName
+				+ "]";
+	}
 }
