@@ -52,27 +52,31 @@ public class SyncRequest extends SyncParent {
 	}
 	
 	/**
-	 * Full
+	 * 
 	 * *** Constructor ***
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_SPS_BC_Request_ID
 	 * @param p_LocalClient_ID
 	 * @param p_RequestType
 	 * @param p_TopicName
 	 * @param p_Name
 	 */
-	public SyncRequest(String p_LocalClient_ID, String p_RequestType, String p_TopicName, String p_Name) {
+	public SyncRequest(int p_SPS_BC_Request_ID, String p_LocalClient_ID, String p_RequestType, String p_TopicName, String p_Name) {
 		this(p_LocalClient_ID, p_RequestType, p_TopicName);
+		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
 		m_Name = p_Name;
 	}
 	
 	/**	Request Type				*/
-	private String 						m_RequestType 	= null;
+	private String 					m_RequestType 		= null;
 	/**	Topic Name					*/
-	private String 						m_TopicName		= null;
+	private String 					m_TopicName			= null;
 	/**	Name for Group				*/
-	private String 						m_Name			= null;
+	private String 					m_Name				= null;
+	/**	Request Identifier			*/
+	private int 					m_SPS_BC_Request_ID = 0;
 	/**	Detail						*/
-	private ArrayList<Integer> 			m_Users			= null;
+	private ArrayList<Integer> 		m_Users				= null;
 	
 	/**	Request Type Constants		*/
 	public static final String RT_BUSINESS_CHAT = "RT_BC";
@@ -138,6 +142,26 @@ public class SyncRequest extends SyncParent {
 	}
 	
 	/**
+	 * Set Request Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_SPS_BC_Request_ID
+	 * @return void
+	 */
+	public void setSPS_BC_Request_ID(int p_SPS_BC_Request_ID) {
+		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
+	}
+	
+	/**
+	 * Get Request Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return int
+	 */
+	public int getSPS_BC_Request_ID() {
+		return m_SPS_BC_Request_ID;
+	}
+	
+	/**
 	 * Get Users Detail
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @return
@@ -184,6 +208,7 @@ public class SyncRequest extends SyncParent {
 	@Override
 	public String toString() {
 		return "SyncRequest [m_RequestType=" + m_RequestType + ", m_TopicName="
-				+ m_TopicName + ", m_Users=" + m_Users + "]";
+				+ m_TopicName + ", m_Name=" + m_Name + ", m_SPS_BC_Request_ID="
+				+ m_SPS_BC_Request_ID + ", m_Users=" + m_Users + "]";
 	}
 }
