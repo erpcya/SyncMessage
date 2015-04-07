@@ -39,7 +39,6 @@ public class SyncRequest extends SyncParent {
 	}
 	
 	/**
-	 * Full
 	 * *** Constructor ***
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_LocalClient_ID
@@ -52,10 +51,26 @@ public class SyncRequest extends SyncParent {
 		m_TopicName = p_TopicName;
 	}
 	
+	/**
+	 * Full
+	 * *** Constructor ***
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_LocalClient_ID
+	 * @param p_RequestType
+	 * @param p_TopicName
+	 * @param p_Name
+	 */
+	public SyncRequest(String p_LocalClient_ID, String p_RequestType, String p_TopicName, String p_Name) {
+		this(p_LocalClient_ID, p_RequestType, p_TopicName);
+		m_Name = p_Name;
+	}
+	
 	/**	Request Type				*/
 	private String 						m_RequestType 	= null;
 	/**	Topic Name					*/
 	private String 						m_TopicName		= null;
+	/**	Name for Group				*/
+	private String 						m_Name			= null;
 	/**	Detail						*/
 	private ArrayList<Integer> 			m_Users			= null;
 	
@@ -100,6 +115,26 @@ public class SyncRequest extends SyncParent {
 	 */
 	public void setTopicName(String p_TopicName) {
 		m_TopicName = p_TopicName;
+	}
+	
+	/**
+	 * Get Name, usually use for group
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return String
+	 */
+	public String getName() {
+		return m_Name;
+	}
+
+	/**
+	 * Set Name for Group
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_Name
+	 * @return void
+	 */
+	public void setName(String p_Name) {
+		m_Name = p_Name;
 	}
 	
 	/**
