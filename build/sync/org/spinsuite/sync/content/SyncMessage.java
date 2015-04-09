@@ -36,19 +36,24 @@ public class SyncMessage extends SyncParent {
 	}
 	
 	/**
-	 * Full Constructor
-	 * *** Constructor ***
+	 * 
+	 * *** Full Constructor ***
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_LocalClient_ID
 	 * @param p_Text
 	 * @param p_FileName
 	 * @param p_Attachment
+	 * @param p_SPS_BC_Request_ID
+	 * @param p_AD_User_ID
 	 */
-	public SyncMessage(String p_LocalClient_ID, String p_Text, String p_FileName, byte[] p_Attachment) {
+	public SyncMessage(String p_LocalClient_ID, String p_Text, String p_FileName, 
+			byte[] p_Attachment, int p_SPS_BC_Request_ID, int p_AD_User_ID) {
 		super(p_LocalClient_ID);
 		m_Text = p_Text;
 		m_FileName = p_FileName;
 		m_Attachment = p_Attachment;
+		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
+		m_AD_User_ID = p_AD_User_ID;
 	}
 	
 	/**
@@ -64,11 +69,15 @@ public class SyncMessage extends SyncParent {
 	}
 	
 	/**	Name					*/
-	private String 	m_Text 			= null;
+	private String 	m_Text 				= null;
 	/**	File Name				*/
-	private String 	m_FileName		= null;
+	private String 	m_FileName			= null;
 	/**	Attachment				*/
-	private byte[]	m_Attachment 	= null;
+	private byte[]	m_Attachment 		= null;
+	/**	Request Identifier		*/
+	private int 	m_SPS_BC_Request_ID = 0;
+	/**	User Identifier			*/
+	private int 	m_AD_User_ID		= 0;
 	
 	/**
 	 * Get Text
@@ -128,6 +137,46 @@ public class SyncMessage extends SyncParent {
 	 */
 	public void setFileName(String p_FileName) {
 		m_FileName = p_FileName;
+	}
+	
+	/**
+	 * Set Request Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_SPS_BC_Request_ID
+	 * @return void
+	 */
+	public void setSPS_BC_Request_ID(int p_SPS_BC_Request_ID) {
+		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
+	}
+	
+	/**
+	 * Get Request Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return int
+	 */
+	public int getSPS_BC_Request_ID() {
+		return m_SPS_BC_Request_ID;
+	}
+	
+	/**
+	 * Set User Idcentifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_AD_User_ID
+	 * @return void
+	 */
+	public void setAD_User_ID(int p_AD_User_ID) {
+		m_AD_User_ID = p_AD_User_ID;
+	}
+	
+	/**
+	 * Get User Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return int
+	 */
+	public int getAD_User_ID() {
+		return m_AD_User_ID;
 	}
 
 	@Override
