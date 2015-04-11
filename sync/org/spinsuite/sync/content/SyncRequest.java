@@ -35,19 +35,19 @@ public class SyncRequest extends SyncParent {
 	 */
 	public SyncRequest(String p_LocalClient_ID) {
 		super(p_LocalClient_ID);
-		m_Users = new ArrayList<Integer>();
+		m_Users = new ArrayList<Invited>();
 	}
 	
 	/**
 	 * *** Constructor ***
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_LocalClient_ID
-	 * @param p_RequestType
+	 * @param p_Type
 	 * @param p_TopicName
 	 */
-	public SyncRequest(String p_LocalClient_ID, String p_RequestType, String p_TopicName) {
+	public SyncRequest(String p_LocalClient_ID, String p_Type, String p_TopicName) {
 		this(p_LocalClient_ID);
-		m_RequestType = p_RequestType;
+		m_Type = p_Type;
 		m_TopicName = p_TopicName;
 	}
 	
@@ -57,18 +57,20 @@ public class SyncRequest extends SyncParent {
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_SPS_BC_Request_ID
 	 * @param p_LocalClient_ID
-	 * @param p_RequestType
+	 * @param p_Type
 	 * @param p_TopicName
 	 * @param p_Name
 	 */
-	public SyncRequest(int p_SPS_BC_Request_ID, String p_LocalClient_ID, String p_RequestType, String p_TopicName, String p_Name) {
-		this(p_LocalClient_ID, p_RequestType, p_TopicName);
+	public SyncRequest(int p_SPS_BC_Request_ID, String p_LocalClient_ID, String p_Type, String p_Status, String p_TopicName, String p_Name) {
+		this(p_LocalClient_ID, p_Type, p_TopicName);
 		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
 		m_Name = p_Name;
 	}
 	
 	/**	Request Type				*/
-	private String 					m_RequestType 		= null;
+	private String 					m_Type 				= null;
+	/**	Request Status				*/
+	private String 					m_Status			= null;
 	/**	Topic Name					*/
 	private String 					m_TopicName			= null;
 	/**	Name for Group				*/
@@ -76,7 +78,7 @@ public class SyncRequest extends SyncParent {
 	/**	Request Identifier			*/
 	private int 					m_SPS_BC_Request_ID = 0;
 	/**	Detail						*/
-	private ArrayList<Integer> 		m_Users				= null;
+	private ArrayList<Invited> 		m_Users				= null;
 	
 	/**	Request Type Constants		*/
 	public static final String RT_BUSINESS_CHAT = "RT_BC";
@@ -87,18 +89,18 @@ public class SyncRequest extends SyncParent {
 	 * @return
 	 * @return String
 	 */
-	public String getRequestType() {
-		return m_RequestType;
+	public String getType() {
+		return m_Type;
 	}
 	
 	/**
 	 * Set Request Type
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_RequestType
+	 * @param p_Type
 	 * @return void
 	 */
-	public void setRequestType(String p_RequestType) {
-		m_RequestType = p_RequestType;
+	public void setType(String p_Type) {
+		m_Type = p_Type;
 	}
 	
 	/**
@@ -162,12 +164,32 @@ public class SyncRequest extends SyncParent {
 	}
 	
 	/**
+	 * Set Request Status
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_Status
+	 * @return void
+	 */
+	public void setStatus(String p_Status) {
+		m_Status = p_Status;
+	}
+	
+	/**
+	 * Get request Status
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return String
+	 */
+	public String getStatus() {
+		return m_Status;
+	}
+	
+	/**
 	 * Get Users Detail
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @return
 	 * @return ArrayList<Integer>
 	 */
-	public ArrayList<Integer> getUsers() {
+	public ArrayList<Invited> getUsers() {
 		return m_Users;
 	}
 	
@@ -177,18 +199,18 @@ public class SyncRequest extends SyncParent {
 	 * @param p_Users
 	 * @return void
 	 */
-	public void setUsers(ArrayList<Integer> p_Users) {
+	public void setUsers(ArrayList<Invited> p_Users) {
 		m_Users = p_Users;
 	}
 	
 	/**
 	 * Add a User for Request
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_AD_User_ID
+	 * @param p_User
 	 * @return void
 	 */
-	public void addUser(int p_AD_User_ID) {
-		m_Users.add(p_AD_User_ID);
+	public void addUser(Invited p_User) {
+		m_Users.add(p_User);
 	}
 	
 	/**
@@ -207,7 +229,7 @@ public class SyncRequest extends SyncParent {
 
 	@Override
 	public String toString() {
-		return "SyncRequest [m_RequestType=" + m_RequestType + ", m_TopicName="
+		return "SyncRequest [m_RequestType=" + m_Type + ", m_TopicName="
 				+ m_TopicName + ", m_Name=" + m_Name + ", m_SPS_BC_Request_ID="
 				+ m_SPS_BC_Request_ID + ", m_Users=" + m_Users + "]";
 	}
