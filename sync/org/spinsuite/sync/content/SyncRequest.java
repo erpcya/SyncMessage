@@ -61,7 +61,7 @@ public class SyncRequest extends SyncParent {
 	 * @param p_TopicName
 	 * @param p_Name
 	 */
-	public SyncRequest(int p_SPS_BC_Request_ID, String p_LocalClient_ID, String p_Type, String p_Status, String p_TopicName, String p_Name) {
+	public SyncRequest(int p_SPS_BC_Request_ID, String p_LocalClient_ID, String p_Type, String p_TopicName, String p_Name) {
 		this(p_LocalClient_ID, p_Type, p_TopicName);
 		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
 		m_Name = p_Name;
@@ -69,8 +69,6 @@ public class SyncRequest extends SyncParent {
 	
 	/**	Request Type				*/
 	private String 					m_Type 				= null;
-	/**	Request Status				*/
-	private String 					m_Status			= null;
 	/**	Topic Name					*/
 	private String 					m_TopicName			= null;
 	/**	Name for Group				*/
@@ -161,26 +159,6 @@ public class SyncRequest extends SyncParent {
 	 */
 	public int getSPS_BC_Request_ID() {
 		return m_SPS_BC_Request_ID;
-	}
-	
-	/**
-	 * Set Request Status
-	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_Status
-	 * @return void
-	 */
-	public void setStatus(String p_Status) {
-		m_Status = p_Status;
-	}
-	
-	/**
-	 * Get request Status
-	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @return
-	 * @return String
-	 */
-	public String getStatus() {
-		return m_Status;
 	}
 	
 	/**
