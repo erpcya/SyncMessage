@@ -207,8 +207,8 @@ public class SyncRequest extends SyncParent {
 
 	@Override
 	public String toString() {
-		return "SyncRequest [m_RequestType=" + m_Type + ", m_TopicName="
-				+ m_TopicName + ", m_Name=" + m_Name + ", m_SPS_BC_Request_ID="
+		return "SyncRequest [m_Type=" + m_Type + ", m_TopicName=" + m_TopicName
+				+ ", m_Name=" + m_Name + ", m_SPS_BC_Request_ID="
 				+ m_SPS_BC_Request_ID + ", m_Users=" + m_Users + "]";
 	}
 }

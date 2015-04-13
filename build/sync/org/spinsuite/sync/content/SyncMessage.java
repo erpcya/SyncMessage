@@ -15,6 +15,8 @@
  *************************************************************************************/
 package org.spinsuite.sync.content;
 
+import java.util.Arrays;
+
 /**
  * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com Mar 27, 2015, 1:46:38 PM
  *
@@ -204,6 +206,9 @@ public class SyncMessage extends SyncParent {
 	@Override
 	public String toString() {
 		return "SyncMessage [m_Text=" + m_Text + ", m_FileName=" + m_FileName
-				+ "]";
+				+ ", m_Attachment=" + Arrays.toString(m_Attachment)
+				+ ", m_SPS_BC_Request_ID=" + m_SPS_BC_Request_ID
+				+ ", m_SPS_BC_Message_ID=" + m_SPS_BC_Message_ID
+				+ ", m_AD_User_ID=" + m_AD_User_ID + "]";
 	}
 }

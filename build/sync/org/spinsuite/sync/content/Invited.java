@@ -84,5 +84,10 @@ public class Invited implements Serializable {
 	public String getStatus() {
 		return m_Status;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Invited [m_AD_User_ID=" + m_AD_User_ID + ", m_Status="
+				+ m_Status + "]";
+	}
 }
