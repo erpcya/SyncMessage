@@ -73,6 +73,8 @@ public class SyncRequest extends SyncParent {
 	private String 					m_TopicName			= null;
 	/**	Name for Group				*/
 	private String 					m_Name				= null;
+	/**	Last Message				*/
+	private String 					m_LastMsg			= null;
 	/**	Request Identifier			*/
 	private int 					m_SPS_BC_Request_ID = 0;
 	/**	Detail						*/
@@ -119,6 +121,26 @@ public class SyncRequest extends SyncParent {
 	 */
 	public void setTopicName(String p_TopicName) {
 		m_TopicName = p_TopicName;
+	}
+	
+	/**
+	 * Get Last Message
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return String
+	 */
+	public String getLastMsg() {
+		return m_LastMsg;
+	}
+
+	/**
+	 * Set Last Message
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_LastMsg
+	 * @return void
+	 */
+	public void setLastMsg(String p_LastMsg) {
+		m_LastMsg = p_LastMsg;
 	}
 	
 	/**
