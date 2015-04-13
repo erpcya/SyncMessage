@@ -209,6 +209,7 @@ public class SyncMessage extends SyncParent {
 				+ ", m_Attachment=" + Arrays.toString(m_Attachment)
 				+ ", m_SPS_BC_Request_ID=" + m_SPS_BC_Request_ID
 				+ ", m_SPS_BC_Message_ID=" + m_SPS_BC_Message_ID
-				+ ", m_AD_User_ID=" + m_AD_User_ID + "]";
+				+ ", m_AD_User_ID=" + m_AD_User_ID + "]"
+				+ ", SyncParent [m_LocalClient_ID=" + getLocalClient_ID() + "]";
 	}
 }
