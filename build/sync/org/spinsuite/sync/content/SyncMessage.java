@@ -76,6 +76,8 @@ public class SyncMessage extends SyncParent {
 	private byte[]	m_Attachment 		= null;
 	/**	Request Identifier		*/
 	private int 	m_SPS_BC_Request_ID = 0;
+	/**	Message Identifier		*/
+	private int 	m_SPS_BC_Message_ID = 0;
 	/**	User Identifier			*/
 	private int 	m_AD_User_ID		= 0;
 	
@@ -157,6 +159,26 @@ public class SyncMessage extends SyncParent {
 	 */
 	public int getSPS_BC_Request_ID() {
 		return m_SPS_BC_Request_ID;
+	}
+	
+	/**
+	 * Set Request Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_SPS_BC_Message_ID
+	 * @return void
+	 */
+	public void setSPS_BC_Message_ID(int p_SPS_BC_Message_ID) {
+		m_SPS_BC_Message_ID = p_SPS_BC_Message_ID;
+	}
+	
+	/**
+	 * Get Message Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return int
+	 */
+	public int getSPS_BC_Message_ID() {
+		return m_SPS_BC_Message_ID;
 	}
 	
 	/**
