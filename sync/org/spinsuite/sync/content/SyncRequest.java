@@ -60,11 +60,13 @@ public class SyncRequest extends SyncParent {
 	 * @param p_Type
 	 * @param p_TopicName
 	 * @param p_Name
+	 * @param p_IsGroup
 	 */
-	public SyncRequest(int p_SPS_BC_Request_ID, String p_LocalClient_ID, String p_Type, String p_TopicName, String p_Name) {
+	public SyncRequest(int p_SPS_BC_Request_ID, String p_LocalClient_ID, String p_Type, String p_TopicName, String p_Name, boolean p_IsGroup) {
 		this(p_LocalClient_ID, p_Type, p_TopicName);
 		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
 		m_Name = p_Name;
+		m_IsGroup = p_IsGroup;
 	}
 	
 	/**	Request Type				*/
@@ -79,6 +81,8 @@ public class SyncRequest extends SyncParent {
 	private int 					m_SPS_BC_Request_ID = 0;
 	/**	Detail						*/
 	private ArrayList<Invited> 		m_Users				= null;
+	/**	Is a Group					*/
+	private boolean					m_IsGroup			= false;
 	
 	/**	Request Type Constants		*/
 	public static final String RT_BUSINESS_CHAT = "RT_BC";
@@ -226,12 +230,32 @@ public class SyncRequest extends SyncParent {
 		//	Default return
 		return m_Users.size();
 	}
+	
+	/**
+	 * Set is Group Attribute 
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_IsGroup
+	 * @return void
+	 */
+	public void setIsGroup(boolean p_IsGroup) {
+		m_IsGroup = p_IsGroup;
+	}
+	
+	/**
+	 * Get Is Group Attribute
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return boolean
+	 */
+	public boolean isGroup() {
+		return m_IsGroup;
+	}
 
 	@Override
 	public String toString() {
 		return "SyncRequest [m_Type=" + m_Type + ", m_TopicName=" + m_TopicName
-				+ ", m_Name=" + m_Name + ", m_SPS_BC_Request_ID="
-				+ m_SPS_BC_Request_ID + ", m_Users=" + m_Users + "]"
-				+ ", SyncParent [m_LocalClient_ID=" + getLocalClient_ID() + "]";
+				+ ", m_Name=" + m_Name + ", m_LastMsg=" + m_LastMsg
+				+ ", m_SPS_BC_Request_ID=" + m_SPS_BC_Request_ID + ", m_Users="
+				+ m_Users + ", m_IsGroup=" + m_IsGroup + "]";
 	}
 }

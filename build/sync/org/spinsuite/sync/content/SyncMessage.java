@@ -47,17 +47,15 @@ public class SyncMessage extends SyncParent {
 	 * @param p_Attachment
 	 * @param p_SPS_BC_Request_ID
 	 * @param p_AD_User_ID
-	 * @param p_IsGroup
 	 */
 	public SyncMessage(String p_LocalClient_ID, String p_Text, String p_FileName, 
-			byte[] p_Attachment, int p_SPS_BC_Request_ID, int p_AD_User_ID, boolean p_IsGroup) {
+			byte[] p_Attachment, int p_SPS_BC_Request_ID, int p_AD_User_ID) {
 		super(p_LocalClient_ID);
 		m_Text = p_Text;
 		m_FileName = p_FileName;
 		m_Attachment = p_Attachment;
 		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
 		m_AD_User_ID = p_AD_User_ID;
-		m_IsGroup = p_IsGroup;
 	}
 	
 	/**
@@ -84,8 +82,6 @@ public class SyncMessage extends SyncParent {
 	private int 	m_SPS_BC_Message_ID = 0;
 	/**	User Identifier			*/
 	private int 	m_AD_User_ID		= 0;
-	/**	Is a Group				*/
-	private boolean m_IsGroup			= false;
 	
 	/**
 	 * Get Text
@@ -207,33 +203,13 @@ public class SyncMessage extends SyncParent {
 		return m_AD_User_ID;
 	}
 
-	/**
-	 * Set is Group Attribute 
-	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_IsGroup
-	 * @return void
-	 */
-	public void setIsGroup(boolean p_IsGroup) {
-		m_IsGroup = p_IsGroup;
-	}
-	
-	/**
-	 * Get Is Group Attribute
-	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @return
-	 * @return boolean
-	 */
-	public boolean isGroup() {
-		return m_IsGroup;
-	}
-
 	@Override
 	public String toString() {
 		return "SyncMessage [m_Text=" + m_Text + ", m_FileName=" + m_FileName
 				+ ", m_Attachment=" + Arrays.toString(m_Attachment)
 				+ ", m_SPS_BC_Request_ID=" + m_SPS_BC_Request_ID
 				+ ", m_SPS_BC_Message_ID=" + m_SPS_BC_Message_ID
-				+ ", m_AD_User_ID=" + m_AD_User_ID + ", m_IsGroup=" + m_IsGroup
-				+ "]";
+				+ ", m_AD_User_ID=" + m_AD_User_ID + "]"
+				+ ", SyncParent [m_LocalClient_ID=" + getLocalClient_ID() + "]";
 	}
 }
