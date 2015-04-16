@@ -47,15 +47,17 @@ public class SyncMessage extends SyncParent {
 	 * @param p_Attachment
 	 * @param p_SPS_BC_Request_ID
 	 * @param p_AD_User_ID
+	 * @param p_UserName
 	 */
 	public SyncMessage(String p_LocalClient_ID, String p_Text, String p_FileName, 
-			byte[] p_Attachment, int p_SPS_BC_Request_ID, int p_AD_User_ID) {
+			byte[] p_Attachment, int p_SPS_BC_Request_ID, int p_AD_User_ID, String p_UserName) {
 		super(p_LocalClient_ID);
 		m_Text = p_Text;
 		m_FileName = p_FileName;
 		m_Attachment = p_Attachment;
 		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
 		m_AD_User_ID = p_AD_User_ID;
+		m_UserName = p_UserName;
 	}
 	
 	/**
@@ -82,6 +84,8 @@ public class SyncMessage extends SyncParent {
 	private int 	m_SPS_BC_Message_ID = 0;
 	/**	User Identifier			*/
 	private int 	m_AD_User_ID		= 0;
+	/**	User Name				*/
+	private String 	m_UserName			= null;
 	
 	/**
 	 * Get Text
@@ -101,6 +105,26 @@ public class SyncMessage extends SyncParent {
 	 */
 	public void setText(String p_Text) {
 		m_Text = p_Text;
+	}
+	
+	/**
+	 * Get User Name
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return String
+	 */
+	public String getUserName() {
+		return m_UserName;
+	}
+	
+	/**
+	 * Set User Name
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_UserName
+	 * @return void
+	 */
+	public void setUserName(String p_UserName) {
+		m_UserName = p_UserName;
 	}
 	
 	/**
@@ -209,7 +233,7 @@ public class SyncMessage extends SyncParent {
 				+ ", m_Attachment=" + Arrays.toString(m_Attachment)
 				+ ", m_SPS_BC_Request_ID=" + m_SPS_BC_Request_ID
 				+ ", m_SPS_BC_Message_ID=" + m_SPS_BC_Message_ID
-				+ ", m_AD_User_ID=" + m_AD_User_ID + "]"
-				+ ", SyncParent [m_LocalClient_ID=" + getLocalClient_ID() + "]";
+				+ ", m_AD_User_ID=" + m_AD_User_ID + ", m_UserName="
+				+ m_UserName + "]";
 	}
 }
