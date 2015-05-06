@@ -86,6 +86,9 @@ public class SyncMessage extends SyncParent {
 	private int 	m_AD_User_ID		= 0;
 	/**	User Name				*/
 	private String 	m_UserName			= null;
+	/**	Topic Name				*/
+	private String 	m_TopicName			= null;
+
 	
 	/**
 	 * Get Text
@@ -226,6 +229,26 @@ public class SyncMessage extends SyncParent {
 	public int getAD_User_ID() {
 		return m_AD_User_ID;
 	}
+	
+	/**
+	 * Get Topic Name
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return String
+	 */
+	public String getTopicName() {
+		return m_TopicName;
+	}
+
+	/**
+	 * Set Topic Name for Chat
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_TopicName
+	 * @return void
+	 */
+	public void setTopicName(String p_TopicName) {
+		m_TopicName = p_TopicName;
+	}
 
 	@Override
 	public String toString() {
@@ -234,6 +257,6 @@ public class SyncMessage extends SyncParent {
 				+ ", m_SPS_BC_Request_ID=" + m_SPS_BC_Request_ID
 				+ ", m_SPS_BC_Message_ID=" + m_SPS_BC_Message_ID
 				+ ", m_AD_User_ID=" + m_AD_User_ID + ", m_UserName="
-				+ m_UserName + "]";
+				+ m_UserName + ", m_TopicName=" + m_TopicName + "]";
 	}
 }

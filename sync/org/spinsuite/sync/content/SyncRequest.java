@@ -83,6 +83,10 @@ public class SyncRequest extends SyncParent {
 	private ArrayList<Invited> 		m_Users				= null;
 	/**	Is a Group					*/
 	private boolean					m_IsGroup			= false;
+	/**	Status						*/
+	private String					m_Status = null;
+	/**	Last Message				*/
+	private String 					m_LastFileName		= null;
 	
 	/**	Request Type Constants		*/
 	public static final String RT_BUSINESS_CHAT = "RT_BC";
@@ -250,12 +254,53 @@ public class SyncRequest extends SyncParent {
 	public boolean isGroup() {
 		return m_IsGroup;
 	}
+	
+	/**
+	 * Get Status
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return String
+	 */
+	public String getStatus() {
+		return m_Status;
+	}
+
+	/**
+	 * Set Status
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_Status
+	 * @return void
+	 */
+	public void setStatus(String p_Status) {
+		m_Status = p_Status;
+	}
+	
+	/**
+	 * Get Last File Name
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return String
+	 */
+	public String getLastFileName() {
+		return m_LastFileName;
+	}
+
+	/**
+	 * Set Last File Name
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_LastFileName
+	 * @return void
+	 */
+	public void setLastFileName(String p_LastFileName) {
+		m_LastFileName = p_LastFileName;
+	}
 
 	@Override
 	public String toString() {
 		return "SyncRequest [m_Type=" + m_Type + ", m_TopicName=" + m_TopicName
 				+ ", m_Name=" + m_Name + ", m_LastMsg=" + m_LastMsg
 				+ ", m_SPS_BC_Request_ID=" + m_SPS_BC_Request_ID + ", m_Users="
-				+ m_Users + ", m_IsGroup=" + m_IsGroup + "]";
+				+ m_Users + ", m_IsGroup=" + m_IsGroup + ", m_Status="
+				+ m_Status + ", m_LastFileName=" + m_LastFileName + "]";
 	}
 }
