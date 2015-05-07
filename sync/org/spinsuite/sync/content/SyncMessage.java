@@ -48,9 +48,10 @@ public class SyncMessage extends SyncParent {
 	 * @param p_SPS_BC_Request_ID
 	 * @param p_AD_User_ID
 	 * @param p_UserName
+	 * @param p_TopicName
 	 */
 	public SyncMessage(String p_LocalClient_ID, String p_Text, String p_FileName, 
-			byte[] p_Attachment, int p_SPS_BC_Request_ID, int p_AD_User_ID, String p_UserName) {
+			byte[] p_Attachment, int p_SPS_BC_Request_ID, int p_AD_User_ID, String p_UserName, String p_TopicName) {
 		super(p_LocalClient_ID);
 		m_Text = p_Text;
 		m_FileName = p_FileName;
@@ -58,6 +59,7 @@ public class SyncMessage extends SyncParent {
 		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
 		m_AD_User_ID = p_AD_User_ID;
 		m_UserName = p_UserName;
+		m_TopicName = p_TopicName;
 	}
 	
 	/**
