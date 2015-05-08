@@ -21,7 +21,7 @@ import java.util.Arrays;
  * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com Mar 27, 2015, 1:46:38 PM
  *
  */
-public class SyncMessage extends SyncParent {
+public class SyncMessage_BC extends SyncParent {
 
 	/**
 	 * 
@@ -33,7 +33,7 @@ public class SyncMessage extends SyncParent {
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_LocalClient_ID
 	 */
-	public SyncMessage(String p_LocalClient_ID) {
+	public SyncMessage_BC(String p_LocalClient_ID) {
 		super(p_LocalClient_ID);
 	}
 	
@@ -50,46 +50,33 @@ public class SyncMessage extends SyncParent {
 	 * @param p_UserName
 	 * @param p_TopicName
 	 */
-	public SyncMessage(String p_LocalClient_ID, String p_Text, String p_FileName, 
-			byte[] p_Attachment, int p_SPS_BC_Request_ID, int p_AD_User_ID, String p_UserName, String p_TopicName) {
+	public SyncMessage_BC(String p_SPS_BC_Message_UUID, String p_LocalClient_ID, String p_SPS_BC_Request_UUID, 
+			int p_AD_User_ID, String p_UserName, String p_Text, String p_FileName, 
+			byte[] p_Attachment) {
 		super(p_LocalClient_ID);
-		m_Text = p_Text;
-		m_FileName = p_FileName;
-		m_Attachment = p_Attachment;
-		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
-		m_AD_User_ID = p_AD_User_ID;
-		m_UserName = p_UserName;
-		m_TopicName = p_TopicName;
+		setSPS_BC_Message_UUID(p_SPS_BC_Message_UUID);
+		setSPS_BC_Request_UUID(p_SPS_BC_Request_UUID);
+		setAD_User_ID(p_AD_User_ID);
+		setUserName(p_UserName);
+		setText(p_Text);
+		setFileName(p_FileName);
+		setAttachment(p_Attachment);
 	}
 	
-	/**
-	 * 
-	 * *** Constructor ***
-	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_LocalClient_ID
-	 * @param p_Text
-	 */
-	public SyncMessage(String p_LocalClient_ID, String p_Text) {
-		super(p_LocalClient_ID);
-		m_Text = p_Text;
-	}
-	
-	/**	Name					*/
-	private String 	m_Text 				= null;
-	/**	File Name				*/
-	private String 	m_FileName			= null;
-	/**	Attachment				*/
-	private byte[]	m_Attachment 		= null;
 	/**	Request Identifier		*/
-	private int 	m_SPS_BC_Request_ID = 0;
+	private String 	m_SPS_BC_Request_UUID 	= null;
 	/**	Message Identifier		*/
-	private int 	m_SPS_BC_Message_ID = 0;
+	private String 	m_SPS_BC_Message_UUID 	= null;
 	/**	User Identifier			*/
-	private int 	m_AD_User_ID		= 0;
+	private int 	m_AD_User_ID			= 0;
 	/**	User Name				*/
-	private String 	m_UserName			= null;
-	/**	Topic Name				*/
-	private String 	m_TopicName			= null;
+	private String 	m_UserName				= null;
+	/**	Name					*/
+	private String 	m_Text 					= null;
+	/**	File Name				*/
+	private String 	m_FileName				= null;
+	/**	Attachment				*/
+	private byte[]	m_Attachment 			= null;
 
 	
 	/**
@@ -175,41 +162,41 @@ public class SyncMessage extends SyncParent {
 	/**
 	 * Set Request Identifier
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_SPS_BC_Request_ID
+	 * @param p_SPS_BC_Request_UUID
 	 * @return void
 	 */
-	public void setSPS_BC_Request_ID(int p_SPS_BC_Request_ID) {
-		m_SPS_BC_Request_ID = p_SPS_BC_Request_ID;
+	public void setSPS_BC_Request_UUID(String p_SPS_BC_Request_UUID) {
+		m_SPS_BC_Request_UUID = p_SPS_BC_Request_UUID;
 	}
 	
 	/**
 	 * Get Request Identifier
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @return
-	 * @return int
+	 * @return String
 	 */
-	public int getSPS_BC_Request_ID() {
-		return m_SPS_BC_Request_ID;
+	public String getSPS_BC_Request_UUID() {
+		return m_SPS_BC_Request_UUID;
 	}
 	
 	/**
 	 * Set Request Identifier
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_SPS_BC_Message_ID
+	 * @param p_SPS_BC_Message_UUID
 	 * @return void
 	 */
-	public void setSPS_BC_Message_ID(int p_SPS_BC_Message_ID) {
-		m_SPS_BC_Message_ID = p_SPS_BC_Message_ID;
+	public void setSPS_BC_Message_UUID(String p_SPS_BC_Message_UUID) {
+		m_SPS_BC_Message_UUID = p_SPS_BC_Message_UUID;
 	}
 	
 	/**
 	 * Get Message Identifier
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @return
-	 * @return int
+	 * @return String
 	 */
-	public int getSPS_BC_Message_ID() {
-		return m_SPS_BC_Message_ID;
+	public String getSPS_BC_Message_UUID() {
+		return m_SPS_BC_Message_UUID;
 	}
 	
 	/**
@@ -231,34 +218,14 @@ public class SyncMessage extends SyncParent {
 	public int getAD_User_ID() {
 		return m_AD_User_ID;
 	}
-	
-	/**
-	 * Get Topic Name
-	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @return
-	 * @return String
-	 */
-	public String getTopicName() {
-		return m_TopicName;
-	}
-
-	/**
-	 * Set Topic Name for Chat
-	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
-	 * @param p_TopicName
-	 * @return void
-	 */
-	public void setTopicName(String p_TopicName) {
-		m_TopicName = p_TopicName;
-	}
 
 	@Override
 	public String toString() {
-		return "SyncMessage [m_Text=" + m_Text + ", m_FileName=" + m_FileName
-				+ ", m_Attachment=" + Arrays.toString(m_Attachment)
-				+ ", m_SPS_BC_Request_ID=" + m_SPS_BC_Request_ID
-				+ ", m_SPS_BC_Message_ID=" + m_SPS_BC_Message_ID
+		return "SyncMessage_BC [m_SPS_BC_Request_UUID=" + m_SPS_BC_Request_UUID
+				+ ", m_SPS_BC_Message_UUID=" + m_SPS_BC_Message_UUID
 				+ ", m_AD_User_ID=" + m_AD_User_ID + ", m_UserName="
-				+ m_UserName + ", m_TopicName=" + m_TopicName + "]";
+				+ m_UserName + ", m_Text=" + m_Text + ", m_FileName="
+				+ m_FileName + ", m_Attachment="
+				+ Arrays.toString(m_Attachment) + "]";
 	}
 }
