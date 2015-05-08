@@ -55,9 +55,6 @@ public class SyncRequest extends SyncParent {
 	/**	Request Identifier			*/
 	private String 					m_SPS_BC_Request_UUID 	= null;
 	
-	/**	Request Type Constants		*/
-	public static final String RT_BUSINESS_CHAT = "RT_BC";
-	
 	/**
 	 * Get Request Type
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
