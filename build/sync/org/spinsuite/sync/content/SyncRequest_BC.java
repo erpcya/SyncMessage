@@ -33,7 +33,6 @@ public class SyncRequest_BC extends SyncRequest {
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_SPS_BC_Request_UUID
 	 * @param p_LocalClient_ID
-	 * @param p_Type
 	 * @param p_TopicName
 	 * @param p_Name
 	 * @param p_LastMsg
