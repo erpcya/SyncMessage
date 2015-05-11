@@ -41,6 +41,8 @@ public class SyncAcknowledgment extends SyncParent {
 	private String 	m_SPS_BC_Message_UUID 	= null;
 	/**	User Identifier			*/
 	private int 	m_AD_User_ID			= 0;
+	/**	Status					*/
+	private String	m_Status 				= null;
 	
 	/**
 	 * Set Request Identifier
@@ -101,10 +103,32 @@ public class SyncAcknowledgment extends SyncParent {
 	public int getAD_User_ID() {
 		return m_AD_User_ID;
 	}
+	
+	/**
+	 * Set Status of Request for User
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_Status
+	 * @return void
+	 */
+	public void setStatus(String p_Status) {
+		m_Status = p_Status;
+	}
+	
+	/**
+	 * Get Invited Status
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return String
+	 */
+	public String getStatus() {
+		return m_Status;
+	}
 
 	@Override
 	public String toString() {
-		return "SyncToken [m_SPS_BC_Message_UUID=" + m_SPS_BC_Message_UUID
-				+ ", m_AD_User_ID=" + m_AD_User_ID + "]";
+		return "SyncAcknowledgment [m_SPS_BC_Request_UUID="
+				+ m_SPS_BC_Request_UUID + ", m_SPS_BC_Message_UUID="
+				+ m_SPS_BC_Message_UUID + ", m_AD_User_ID=" + m_AD_User_ID
+				+ ", m_Status=" + m_Status + "]";
 	}
 }
