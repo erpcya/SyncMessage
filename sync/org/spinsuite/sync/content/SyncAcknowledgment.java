@@ -19,7 +19,7 @@ package org.spinsuite.sync.content;
  * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com May 7, 2015, 7:15:56 PM
  *
  */
-public class SyncToken extends SyncParent {
+public class SyncAcknowledgment extends SyncParent {
 
 	/**
 	 * 
@@ -31,8 +31,59 @@ public class SyncToken extends SyncParent {
 	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
 	 * @param p_LocalClient_ID
 	 */
-	public SyncToken(String p_LocalClient_ID) {
+	public SyncAcknowledgment(String p_LocalClient_ID) {
 		super(p_LocalClient_ID);
 	}
 
+	
+	/**	Message Identifier		*/
+	private String 	m_SPS_BC_Message_UUID 	= null;
+	/**	User Identifier			*/
+	private int 	m_AD_User_ID			= 0;
+	
+	/**
+	 * Set Request Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_SPS_BC_Message_UUID
+	 * @return void
+	 */
+	public void setSPS_BC_Message_UUID(String p_SPS_BC_Message_UUID) {
+		m_SPS_BC_Message_UUID = p_SPS_BC_Message_UUID;
+	}
+	
+	/**
+	 * Get Message Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return String
+	 */
+	public String getSPS_BC_Message_UUID() {
+		return m_SPS_BC_Message_UUID;
+	}
+	
+	/**
+	 * Set User Idcentifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_AD_User_ID
+	 * @return void
+	 */
+	public void setAD_User_ID(int p_AD_User_ID) {
+		m_AD_User_ID = p_AD_User_ID;
+	}
+	
+	/**
+	 * Get User Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return int
+	 */
+	public int getAD_User_ID() {
+		return m_AD_User_ID;
+	}
+
+	@Override
+	public String toString() {
+		return "SyncToken [m_SPS_BC_Message_UUID=" + m_SPS_BC_Message_UUID
+				+ ", m_AD_User_ID=" + m_AD_User_ID + "]";
+	}
 }
