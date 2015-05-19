@@ -193,8 +193,8 @@ public class SyncRequest_BC extends SyncRequest {
 
 	@Override
 	public String toString() {
-		return "SyncRequestBCMessage [m_Name=" + m_Name + ", m_LastMsg="
-				+ m_LastMsg + ", m_IsGroup=" + m_IsGroup + ", m_LastFileName="
+		return "SyncRequestBCMessage [m_Name=" + m_Name + ", m_TopicName=" + getTopicName() +
+				", m_LastMsg=" + m_LastMsg + ", m_IsGroup=" + m_IsGroup + ", m_LastFileName="
 				+ m_LastFileName + ", m_Users=" + m_Users + "]";
 	}
 }
