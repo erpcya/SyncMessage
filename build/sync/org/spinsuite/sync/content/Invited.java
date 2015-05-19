@@ -61,7 +61,7 @@ public class Invited implements Serializable {
 	 * @return
 	 * @return int
 	 */
-	public int getAD_USer_ID() {
+	public int getAD_User_ID() {
 		return m_AD_User_ID;
 	}
 	
