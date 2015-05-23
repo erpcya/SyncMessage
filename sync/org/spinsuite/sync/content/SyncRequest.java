@@ -54,6 +54,8 @@ public class SyncRequest extends SyncParent {
 	private String 					m_TopicName				= null;
 	/**	Request Identifier			*/
 	private String 					m_SPS_BC_Request_UUID 	= null;
+	/**	Creator User				*/
+	private int						m_AD_User_ID			= 0;
 	
 	/**
 	 * Get Request Type
@@ -114,10 +116,31 @@ public class SyncRequest extends SyncParent {
 	public String getSPS_BC_Request_UUID() {
 		return m_SPS_BC_Request_UUID;
 	}
+	
+	/**
+	 * Set User Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @param p_AD_User_ID
+	 * @return void
+	 */
+	public void setAD_User_ID(int p_AD_User_ID) {
+		m_AD_User_ID = p_AD_User_ID;
+	}
+	
+	/**
+	 * Get User Identifier
+	 * @author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+	 * @return
+	 * @return int
+	 */
+	public int getAD_User_ID() {
+		return m_AD_User_ID;
+	}
 
 	@Override
 	public String toString() {
 		return "SyncRequest [m_Type=" + m_Type + ", m_TopicName=" + m_TopicName
-				+ ", m_SPS_BC_Request_UUID=" + m_SPS_BC_Request_UUID + "]";
+				+ ", m_SPS_BC_Request_UUID=" + m_SPS_BC_Request_UUID
+				+ ", m_AD_User_ID=" + m_AD_User_ID + "]";
 	}
 }
